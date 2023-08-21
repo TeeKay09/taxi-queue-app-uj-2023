@@ -1,0 +1,52 @@
+
+# Passengers joinng the queue
+###
+POST http://localhost:4015/api/passenger/join
+content-type: application/json
+
+{
+"passenger_queue_count":"8"
+
+}
+
+
+# Passenger leaving the queue 
+###
+
+POST http://localhost:4015/api/passenger/leave
+content-type: application/json
+
+{
+
+"passenger_queue_count":"10"
+
+}
+
+# Taxi joins the quuee
+
+###
+
+POST http://localhost:4015/api/taxi/join
+content-type: application/json
+
+{
+
+"taxi_queue_count":"3"
+
+}
+
+
+# Taxi leaves the queue
+###
+POST http://localhost:4015/api/taxi/leave
+content-type: application/json
+
+{
+
+"taxi_queue_count":"3"
+
+}
+
+
+
+
