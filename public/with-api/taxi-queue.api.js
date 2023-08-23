@@ -1,43 +1,34 @@
 document.addEventListener('alpine:init', () => {
-
 	Alpine.data('TaxiQueue', () => {
-
 		return {
-			version: 'api-1.0',
-			queueLength: 0,
-			init() {
-				axios
-					.get('/api/passenger/queue')
-					.then(result => {
-						// an example API call
-						this.queueLength = result.data.queueCount
-					});
-			},
+			version: 'no-api-1.0',
+			passengerQueueCount: 0,
+                taxiQueueCount: 0,
 			joinQueue() {
-
+				this.passengerQueueCount++;
+			},
+			init(){
+				alert('User')
 			},
 			leaveQueue() {
-
+				if (this.passengerQueueCount > 0) {
+				this.passengerQueueCount--;
+			}
 			},
-
 			joinTaxiQueue() {
-
+				this.taxiQueueCount++;
 			},
-
 			queueLength() {
-
+			 return this.passengerQueueCount;
 			},
-
 			taxiQueueLength() {
-
+                return this.taxiQueueCount;
 			},
-
 			taxiDepart() {
-
+				if (this.taxiQueueCount > 0) {
+					this.taxiQueueCount--;
+				}
 			}
 		}
 	});
-
 });
-
-
